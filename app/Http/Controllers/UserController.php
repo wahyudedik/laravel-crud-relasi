@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
         try {
-            $users = User::with('profiles')->paginate(10);
+            $users = User::paginate(10);
 
             if ($users->isEmpty()) {
                 return view('users.index', [
@@ -61,7 +61,7 @@ class UserController extends Controller
     public function show(string $id)
     {
         return view('users.show', [
-            'user' => User::with(['profiles', 'posts', 'courses'])->findOrFail($id)
+            'user' => User::findOrFail($id)
         ]);
     }
 
@@ -71,7 +71,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         return view('users.edit', [
-            'user' => User::with(['profiles', 'posts', 'courses'])->findOrFail($id)
+            'user' => User::findOrFail($id)
         ]);
     }
 
