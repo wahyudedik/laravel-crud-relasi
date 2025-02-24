@@ -12,12 +12,15 @@ Repository ini berisi contoh implementasi **Relasi Database** dalam Laravel, ter
 
 1. Clone repository ini:
     ```sh
-    git clone https://github.com/yourusername/laravel-relationships.git
-    cd laravel-relationships
+    git clone https://github.com/wahyudedik/laravel-crud-relasi.git
+    cd laravel-crud-relasi
     ```
 2. Install dependency Laravel:
     ```sh
     composer install
+    ```
+    ```sh
+    npm install
     ```
 3. Buat file `.env` dan konfigurasi database.
 4. Jalankan migrasi database:
@@ -27,6 +30,9 @@ Repository ini berisi contoh implementasi **Relasi Database** dalam Laravel, ter
 5. Jalankan server:
     ```sh
     php artisan serve
+    ```
+    ```sh
+    npm run dev
     ```
 
 ## 🔗 Relasi Database

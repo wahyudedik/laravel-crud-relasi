@@ -12,6 +12,10 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    protected $table = 'users';
+
+    protected $with = ['profiles', 'posts', 'courses'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -47,7 +51,7 @@ class User extends Authenticatable
     }
 
     // relationship with Profile model
-    public function profile()
+    public function profiles()
     {
         return $this->hasOne(Profile::class, 'user_id');
     }
