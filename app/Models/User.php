@@ -51,4 +51,16 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class, 'user_id');
     }
+
+    // relationship with Post model
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
+
+    // relationship with Course model
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'course_user', 'user_id', 'course_id');
+    }
 }
