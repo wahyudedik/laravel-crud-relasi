@@ -1,141 +1,35 @@
-# Laravel Relationships Example
+## Fitur Aplikasi Laravel Relationships Example
 
-## 📖 Pendahuluan
+### 1. Manajemen User dan Profile (One to One)
+- Setiap user memiliki satu profile
+- CRUD untuk user dan profile
+- Relasi one-to-one antara User dan Profile
 
-Repository ini berisi contoh implementasi **Relasi Database** dalam Laravel, termasuk:
+### 2. Manajemen Post (One to Many) 
+- User dapat membuat banyak post
+- CRUD untuk post
+- Relasi one-to-many antara User dan Post
+- Melihat semua post dari seorang user
 
--   **One to One** (Satu ke Satu)
--   **One to Many** (Satu ke Banyak)
--   **Many to Many** (Banyak ke Banyak)
+### 3. Manajemen Course (Many to Many)
+- User dapat mengambil banyak course
+- Course dapat diikuti oleh banyak user
+- CRUD untuk course
+- Relasi many-to-many antara User dan Course
+- Mendaftarkan/membatalkan user ke course
 
-## 🛠 Instalasi
+### 4. Fitur Database
+- Migrasi database otomatis
+- Seeder untuk data dummy
+- Relasi antar tabel yang terstruktur
 
-1. Clone repository ini:
-    ```sh
-    git clone https://github.com/wahyudedik/laravel-crud-relasi.git
-    cd laravel-crud-relasi
-    ```
-2. Install dependency Laravel:
-    ```sh
-    composer install
-    ```
-    ```sh
-    npm install
-    ```
-3. Buat file `.env` dan konfigurasi database.
-4. Jalankan migrasi database:
-    ```sh
-    php artisan migrate
-    ```
-5. Jalankan server:
-    ```sh
-    php artisan serve
-    ```
-    ```sh
-    npm run dev
-    ```
+### 5. Fitur Sistem
+- Autentikasi user
+- Interface yang responsif (menggunakan npm)
+- API endpoints untuk akses data
 
-## 🔗 Relasi Database
-
-### 1️⃣ One to One
-
-Relasi ini menghubungkan satu user dengan satu profile.
-
-**Contoh Model:**
-
-```php
-class User extends Model {
-    public function profile() {
-        return $this->hasOne(Profile::class);
-    }
-}
-```
-
-```php
-class Profile extends Model {
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
-}
-```
-
-**Query:**
-
-```php
-$user = User::find(1);
-$profile = $user->profile;
-```
-
-### 2️⃣ One to Many
-
-Relasi ini menghubungkan satu user dengan banyak post.
-
-**Contoh Model:**
-
-```php
-class User extends Model {
-    public function posts() {
-        return $this->hasMany(Post::class);
-    }
-}
-```
-
-```php
-class Post extends Model {
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
-}
-```
-
-**Query:**
-
-```php
-$user = User::find(1);
-$posts = $user->posts;
-```
-
-### 3️⃣ Many to Many
-
-Relasi ini menghubungkan banyak user dengan banyak courses.
-
-**Contoh Model:**
-
-```php
-class User extends Model {
-    public function courses() {
-        return $this->belongsToMany(Course::class);
-    }
-}
-```
-
-```php
-class Course extends Model {
-    public function users() {
-        return $this->belongsToMany(User::class);
-    }
-}
-```
-
-**Query:**
-
-```php
-$user = User::find(1);
-$courses = $user->courses;
-```
-
-## 🚀 Menjalankan Seeder (Opsional)
-
-Jika ingin menambahkan data dummy:
-
-```sh
-php artisan db:seed
-```
-
-## 📜 Lisensi
-
-Project ini dilisensikan di bawah **MIT License**.
-
----
-
-Selamat ngoding! 🚀
+### 6. Teknologi yang Digunakan
+- Laravel Framework
+- MySQL Database
+- NPM untuk frontend
+- Composer untuk manajemen dependency PHP
